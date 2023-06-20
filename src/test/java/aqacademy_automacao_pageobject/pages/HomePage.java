@@ -22,20 +22,20 @@ public class HomePage {
         driver.findElement(By.xpath(REGISTRAR)).click();
 
  }
-    public void PreencherEmail() {
-        driver.findElement(By.xpath(EMAIL)).sendKeys("teste1@gmail.com");
+    public void PreencherEmail(String email) {
+        driver.findElement(By.xpath(EMAIL)).sendKeys(email);
     }
 
-    public void PreencherNome() {
-        driver.findElement(By.xpath(NOME)).sendKeys("QA Academy");
+    public void PreencherNome(String nome) {
+        driver.findElement(By.xpath(NOME)).sendKeys(nome);
     }
 
-    public void PreencherSenha() {
-        driver.findElement(By.xpath(SENHA)).sendKeys("teste");
+    public void PreencherSenha(String senha) {
+        driver.findElement(By.xpath(SENHA)).sendKeys(senha);
     }
 
-    public void PreencherCofirmacaoSenha() {
-        driver.findElement(By.xpath(CONFIRM_SENHA)).sendKeys("teste");
+    public void PreencherConfirmacaoSenha(String ConfirmacaoSenha) {
+        driver.findElement(By.xpath(CONFIRM_SENHA)).sendKeys(ConfirmacaoSenha);
     }
 
     public void ClicarEmCriarComSaldo() {

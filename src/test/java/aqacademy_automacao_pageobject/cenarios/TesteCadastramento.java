@@ -2,6 +2,8 @@ package aqacademy_automacao_pageobject.cenarios;
 
 import java.util.concurrent.TimeUnit;
 
+import javax.xml.validation.ValidatorHandler;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -25,21 +27,32 @@ public class TesteCadastramento {
     }
 
     @Test
-    public void testePositivoCadastro() { // Método testePositivoCadastro
-        homePage.clicarRegistrar(); // Fazendo as chamadas da classe HomePage
-        homePage.PreencherEmail(); // Fazendo as chamadas da classe HomePage
-        homePage.PreencherNome(); // Fazendo as chamadas da classe HomePage
-        homePage.PreencherSenha(); // Fazendo as chamadas da classe HomePage
-        homePage.PreencherCofirmacaoSenha(); // Fazendo as chamadas da classe HomePage
-        homePage.ClicarEmCriarComSaldo(); // Fazendo as chamadas da classe HomePage
-        homePage.ClicarCadastrar(); // Fazendo as chamadas da classe HomePage
-        Assert.assertTrue(driver.getPageSource().contains("foi criada com sucesso"));
+    public void testePositivoCadastro() {                                  // Método testePositivoCadastro
+        homePage.clicarRegistrar();                                        // Fazendo as chamadas da classe HomePage
+        homePage.PreencherEmail("teste1@gmail.com");                 // Fazendo as chamadas da classe HomePage
+        homePage.PreencherNome("QA Academy");                         // Fazendo as chamadas da classe HomePage
+        homePage.PreencherSenha("teste");                            // Fazendo as chamadas da classe HomePage
+        homePage.PreencherConfirmacaoSenha("teste");      // Fazendo as chamadas da classe HomePage
+        homePage.ClicarEmCriarComSaldo();                                  // Fazendo as chamadas da classe HomePage
+        homePage.ClicarCadastrar();                                        // Fazendo as chamadas da classe HomePage
+        validarMensagem("foi criada com sucesso");                                                
     }
 
-    @After
+     @Test
+    public void testeCadastroVazio() {                                                                           // Fazendo as chamadas da classe HomePage
+        homePage.clicarRegistrar();                          
+        homePage.ClicarCadastrar();                                        
+        validarMensagem("É campo obrigatório");                                                
+    }
+
+
+      public void validarMensagem(String msg){
+        Assert.assertTrue(driver.getPageSource().contains(msg));
+    }
+
+      @After
     public void finalizar() throws InterruptedException{
         Thread.sleep(5000);
         driver.quit();
-
     }
 }
