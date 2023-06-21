@@ -1,9 +1,6 @@
 package aqacademy_automacao_pageobject.cenarios;
 
 import java.util.concurrent.TimeUnit;
-
-import javax.xml.validation.ValidatorHandler;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -29,7 +26,7 @@ public class TesteCadastramento {
     @Test
     public void testePositivoCadastro() {                                  // Método testePositivoCadastro
         homePage.clicarRegistrar();                                        // Fazendo as chamadas da classe HomePage
-        homePage.PreencherEmail("teste1@gmail.com");                 // Fazendo as chamadas da classe HomePage
+        homePage.PreencherEmail("teste@gmail.com");                 // Fazendo as chamadas da classe HomePage
         homePage.PreencherNome("QA Academy");                         // Fazendo as chamadas da classe HomePage
         homePage.PreencherSenha("teste");                            // Fazendo as chamadas da classe HomePage
         homePage.PreencherConfirmacaoSenha("teste");      // Fazendo as chamadas da classe HomePage

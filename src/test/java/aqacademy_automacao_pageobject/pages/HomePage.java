@@ -13,6 +13,7 @@ public class HomePage {
     String CONFIRM_SENHA = "//input[@name='passwordConfirmation']";
     String CRIAR_SALDO =   "//label[@id='toggleAddBalance']";
     String CADASTRAR =     "//button[contains(text(),'Cadastrar')]";
+    String FECHAR =        "//*[@id=\"btnCloseModal\"]";
 
     public HomePage(WebDriver driverParametro){ //Atalho vindo do TesteCadastramento. Método construtor, onde consigo fazer todas as ações utilizando o Webdriver vindo lá da classe de TesteCadastramento responsável por gerenciar os meus WebDriver.
         this.driver = driverParametro;
@@ -44,6 +45,10 @@ public class HomePage {
 
     public void ClicarCadastrar() {
         driver.findElement(By.xpath(CADASTRAR)).click();
+            }
+
+              public void ClicarFechar() {
+        driver.findElement(By.xpath(FECHAR)).click();
     }
 
 }
