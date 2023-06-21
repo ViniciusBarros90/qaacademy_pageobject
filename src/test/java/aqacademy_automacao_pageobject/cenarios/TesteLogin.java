@@ -18,6 +18,8 @@ public class TesteLogin {
 
     String email = "teste@gmail.com";
     String senha = "teste";
+    String emailIncorreto = "teste200@gmail.com";
+    String senhaIncorreta = "senha200";
 
     @Before
     public void setup() throws InterruptedException {
@@ -39,7 +41,17 @@ public class TesteLogin {
         validarMensagem(msgValidacao);
         validarUrl("/home");
     }
-                                               
+
+    @Test
+    public void testeLoginEmailIncorreto() throws InterruptedException {
+     String msgValidacao = "Usuário ou senha inválido";                                                                      // Fazendo as chamadas da classe HomePage
+        loginPage.preencherEmailIncorreto(emailIncorreto);
+        loginPage.preencherSenha(senha);
+        loginPage.clicarAcessar();
+        Thread.sleep(2000);
+        validarMensagem(msgValidacao);
+            }
+                                                   
      public void validarMensagem(String msg){
         Assert.assertTrue(driver.getPageSource().contains(msg));
     }
@@ -49,7 +61,6 @@ public class TesteLogin {
         }
 
     
-
     public void cadastrarUsuario() throws InterruptedException{
         homePage.clicarRegistrar();                                        
         homePage.PreencherEmail(email);                 
